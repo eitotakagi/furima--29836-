@@ -41,6 +41,7 @@ Things you may want to cover:
 
 ## items テーブル
 
+<<<<<<< Updated upstream
 | Column         | Type      | Options                      |
 | -------------- | --------- | -----------                  |
 | prince         | integer   | null: false                  |
@@ -53,6 +54,19 @@ Things you may want to cover:
 | delivery_fee_id| integer   | null: false                  |
 | duration_id    | integer   | null: false                  |
 
+=======
+| Column      | Type   | Options     |
+| ----------- | ------ | ----------- |
+| seller      | string | null: false |
+| prince      | string | null: false |
+| category    | string | null: false |
+| name        | string | null: false |
+| image       | string | null: false |
+| description | string | null: false |
+| area        | string | null: false |
+| status      | string | null: false |
+| user_id     | string | null: false |
+>>>>>>> Stashed changes
 
 ## comments テーブル
 
