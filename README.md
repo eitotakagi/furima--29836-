@@ -34,18 +34,17 @@ Things you may want to cover:
 | given_name    | string | null: false |
 | family_name_fu| string | null: false |
 | given_name_fu | string | null: false |
-| birthday_year | date   | null: false |
-| birthday_month| date   | null: false |
-| birthday_day  | date   | null: false |
+| birthday      | date   | null: false |
+
 ## items テーブル
 
 | Column         | Type      | Options                      |
 | -------------- | --------- | -----------                  |
-| prince         | integer   | null: false                  |
+| price          | integer   | null: false                  |
 | category_id    | integer   | null: false                  |
 | name           | string    | null: false                  |
 | description    | text      | null: false                  |
-| area           | string    | null: false                  |
+| area           | references| null: false,foreign_key: true|
 | status_id      | integer   | null: false                  |
 | user           | references| null: false,foreign_key: true|
 | delivery_fee_id| integer   | null: false                  |
@@ -72,6 +71,6 @@ Things you may want to cover:
 
 ## transaction テーブル
 
-| Column     | Type   | Options     |
-| user_id    | string |             |
-| item_id    | string | null: false |
+| Column     | Type      | Options                      |
+| user       | references| foreign_key: true            |
+| item       | references| null: false,foreign_key: true|
