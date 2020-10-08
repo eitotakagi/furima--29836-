@@ -36,6 +36,12 @@ Things you may want to cover:
 | given_name_fu | string | null: false |
 | birthday      | date   | null: false |
 
+### Association
+- has_many :items
+- has_many :comments
+- has_many :buyers
+- has_many :transaction
+
 ## items テーブル
 
 | Column         | Type      | Options                      |
@@ -44,11 +50,17 @@ Things you may want to cover:
 | category_id    | integer   | null: false                  |
 | name           | string    | null: false                  |
 | description    | text      | null: false                  |
-| area           | references| null: false,foreign_key: true|
+| area_id        | integer   | null: false                  |
 | status_id      | integer   | null: false                  |
 | user           | references| null: false,foreign_key: true|
 | delivery_fee_id| integer   | null: false                  |
 | duration_id    | integer   | null: false                  |
+
+### Association
+- belongs_to :users
+- has_many :comments
+- has_one :buyers
+- has_many :transaction
 
 ## comments テーブル
 
@@ -58,26 +70,31 @@ Things you may want to cover:
 | user_id    | string | null: false |
 | item_id    | string | null: false |
 
+### Association
+- belongs_to :users
+- belongs_to :items
+
 ## buyers テーブル
 
-| Column        | Type      | Options                     |
-| ------------- | --------- | --------------------------- |
-| postal_code   | string    | null: false                 |
-| prefecture_id | integer   | null: false                 |
-| municipality  | string    | null: false                 |
-| address       | string    | null: false                 |
-| building_name | string    |                             |
-| phone_number  | references|null: false,foreign_key: true|
+| Column        | Type      | Options    |
+| ------------- | --------- | ---------- |
+| postal_code   | string    | null: false|
+| prefecture_id | integer   | null: false|
+| municipality  | string    | null: false|
+| address       | string    | null: false|
+| building_name | string    |            |
+| phone_number  | references|null: false,|
+
+### Association
+- belongs_to :users
 
 ## transaction テーブル
 
 | Column     | Type      | Options                      |
-| user       | references| foreign_key: true            |
+| user       | references| null: false,foreign_key: true|
 | item       | references| null: false,foreign_key: true|
 
 ### Association
-
-- belongs_to :area
-- belongs_to :user
-- belongs_to :phone_number
+- 
+- belongs_to :users
 - belongs_to :item
