@@ -67,10 +67,17 @@ Things you may want to cover:
 | municipality  | string    | null: false                 |
 | address       | string    | null: false                 |
 | building_name | string    |                             |
-|phone_number   | references|null: false,foreign_key: true|
+| phone_number  | references|null: false,foreign_key: true|
 
 ## transaction テーブル
 
 | Column     | Type      | Options                      |
 | user       | references| foreign_key: true            |
 | item       | references| null: false,foreign_key: true|
+
+### Association
+
+- belongs_to :area
+- belongs_to :user
+- belongs_to :phone_number
+- belongs_to :item
