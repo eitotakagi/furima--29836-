@@ -71,8 +71,8 @@ Things you may want to cover:
 | item_id    | string | null: false |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belong_to :users
+- belong_to :items
 
 ## buyers テーブル
 
@@ -83,10 +83,10 @@ Things you may want to cover:
 | municipality  | string    | null: false|
 | address       | string    | null: false|
 | building_name | string    |            |
-| phone_number  | references|null: false,|
+| phone_number  | string    |null: false,|
 
 ### Association
-- belongs_to :users
+- belong_to :users
 
 ## transaction テーブル
 
@@ -96,5 +96,5 @@ Things you may want to cover:
 
 ### Association
 - 
-- belongs_to :users
-- belongs_to :item
+- belong_to :users
+- belong_to :item
