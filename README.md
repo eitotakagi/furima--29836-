@@ -49,7 +49,7 @@ Things you may want to cover:
 | category_id    | integer   | null: false                  |
 | name           | string    | null: false                  |
 | description    | text      | null: false                  |
-| area_id        | integer   | null: false                  |
+| prefecture_id  | integer   | null: false                  |
 | status_id      | integer   | null: false                  |
 | user           | references| null: false,foreign_key: true|
 | delivery_fee_id| integer   | null: false                  |
