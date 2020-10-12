@@ -39,7 +39,6 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :buyers
 - has_many :transaction
 
 ## items テーブル
@@ -59,35 +58,35 @@ Things you may want to cover:
 ### Association
 - belongs_to :users
 - has_many :comments
-- has_one :buyers
-- has_many :transaction
+- has_one :buyer
+- has_one :item_purchase
 
 ## comments テーブル
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| text       | string | null: false |
-| user_id    | string | null: false |
-| item_id    | string | null: false |
+| Column     | Type   | Options                      |
+| ---------- | ------ | ---------------------------- |
+| text       | string | null: false                  |
+| user       | string | null: false,foreign_key: true|
+| item       | string | null: false,foreign_key: true|
 
 ### Association
-- belong_to :users
-- belong_to :items
+- belongs_to :user
+- belongs_to :item
 
 ## buyers テーブル
 
-| Column        | Type      | Options    |
-| ------------- | --------- | ---------- |
-| postal_code   | string    | null: false|
-| prefecture_id | integer   | null: false|
-| municipality  | string    | null: false|
-| address       | string    | null: false|
-| building_name | string    |            |
-| phone_number  | string    |null: false,|
+| Column        | Type      | Options                       |
+| ------------- | --------- | ----------------------------- |
+| postal_code   | string    | null: false                   |
+| prefecture_id | integer   | null: false                   |
+| municipality  | string    | null: false                   |
+| address       | string    | null: false                   |
+| building_name | string    |                               |
+| phone_number  | string    |null: false,                   |
+| item_purchase | references| null: false, foreign_key: true|
 
 ### Association
-- belong_to :users
-- belong_to :item_purchases
+- belongs_to :item_purchase
 
 ## item_purchases テーブル
 
@@ -96,6 +95,6 @@ Things you may want to cover:
 | item       | references| null: false,foreign_key: true|
 
 ### Association
-- has_one :buyers
-- belong_to :users
-- belong_to :item
+
+- belongs_to :user
+- belongs_to :item
