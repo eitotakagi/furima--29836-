@@ -39,7 +39,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :comments
-- has_many :transaction
+- has_many :item_purchases
 
 ## items テーブル
 
@@ -56,18 +56,17 @@ Things you may want to cover:
 | duration_id    | integer   | null: false                  |
 
 ### Association
-- belongs_to :users
+- belongs_to :user
 - has_many :comments
-- has_one :buyer
 - has_one :item_purchase
 
 ## comments テーブル
 
-| Column     | Type   | Options                      |
-| ---------- | ------ | ---------------------------- |
-| text       | string | null: false                  |
-| user       | string | null: false,foreign_key: true|
-| item       | string | null: false,foreign_key: true|
+| Column     | Type       | Options                      |
+| ---------- | ---------- | ---------------------------- |
+| text       | string     | null: false                  |
+| user       | references | null: false,foreign_key: true|
+| item       | references | null: false,foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -95,6 +94,6 @@ Things you may want to cover:
 | item       | references| null: false,foreign_key: true|
 
 ### Association
-
+- has_one :buyer
 - belongs_to :user
 - belongs_to :item
