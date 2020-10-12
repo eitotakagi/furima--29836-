@@ -87,14 +87,15 @@ Things you may want to cover:
 
 ### Association
 - belong_to :users
+- belong_to :item_purchases
 
-## transaction テーブル
+## item_purchases テーブル
 
 | Column     | Type      | Options                      |
 | user       | references| null: false,foreign_key: true|
 | item       | references| null: false,foreign_key: true|
 
 ### Association
-- 
+- has_one :buyers
 - belong_to :users
 - belong_to :item
